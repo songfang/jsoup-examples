@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webScrapMap>
+
+	<resultMap id="awardyear" url="http://en.wikipedia.org/wiki/Academy_Awards"
+		class="com.gosmarter.webcrawler.jsoup.AwardYear" baseurl="http://en.wikipedia.org"
+		data="list">
+
+		<result property="year" type="text"
+			cssselector="html body div#content.mw-body div#bodyContent div#mw-content-text.mw-content-ltr table.sortable tbody tr td a" />
+
+		<result property="wikipediaSource" type="url"
+			cssselector="html body div#content.mw-body div#bodyContent div#mw-content-text.mw-content-ltr table.sortable tbody tr td a" />
+	</resultMap>
+
+	<resultMap id="awards" class="com.gosmarter.webcrawler.jsoup.AwardMovie"
+		baseurl="http://en.wikipedia.org">
+		<result property="bestMovie1" type="text" index="0"
+			cssselector="html body div#content.mw-body div#bodyContent div#mw-content-text.mw-content-ltr table.wikitable tbody tr td ul li b" />
+		<result property="bestDirector1" type="text" index="1"
+			cssselector="html body div#content.mw-body div#bodyContent div#mw-content-text.mw-content-ltr table.wikitable tbody tr td ul li b" />
+		<result property="bestLeadHero1" type="text" index="2"
+			cssselector="html body div#content.mw-body div#bodyContent div#mw-content-text.mw-content-ltr table.wikitable tbody tr td ul li b" />
+		<result property="bestLeadHeroine1" type="text" index="3"
+			cssselector="html body div#content.mw-body div#bodyContent div#mw-content-text.mw-content-ltr table.wikitable tbody tr td ul li b" />
+	</resultMap>
+</webScrapMap>

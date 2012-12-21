@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webScrapMap>
+
+	<resultMap id="ebayIphones" url="http://www.ebay.in/sch/i.html?_nkw=iphone+5"
+		class="com.gosmarter.webcrawler.jsoup.Item" data="list">
+
+		<result property="imageUrl" type="img"
+			cssselector="html body div#ff-body.ff-body div#ff-center.ff-center div#CenterPanel div#rsc.rsc div#ResultSet.rs_box div#v4-43 div#v4-44 div#lvc.lview table.li tbody tr.li2hl td.pic a.img img.img" />
+		<result property="link" type="url"
+			cssselector="html body div#ff-body.ff-body div#ff-center.ff-center div#CenterPanel div#rsc.rsc div#ResultSet.rs_box div#v4-43 div#v4-44 div#lvc.lview table.li tbody tr.li2hl td.dtl div.ttl a.vip" />
+		<result property="name" type="text"
+			cssselector="html body div#ff-body.ff-body div#ff-center.ff-center div#CenterPanel div#rsc.rsc div#ResultSet.rs_box div#v4-43 div#v4-44 div#lvc.lview table.li tbody tr.li2hl td.dtl div.ttl a.vip" />
+		<result property="price" type="text"
+			cssselector="html body div#ff-body.ff-body div#ff-center.ff-center div#CenterPanel div#rsc.rsc div#ResultSet.rs_box div#v4-43 div#v4-44 div#lvc.lview table.li tbody tr.li2hl td.prc" />
+	</resultMap>
+</webScrapMap>

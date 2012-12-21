@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+	<context:component-scan base-package="net.gosmarter.webcrawler" />
+	
+	<bean id="awardCrawlInvokar" class="net.gosmarter.spring.AwardCrawlInvokar">
+		<property name="awardCrawlers" >
+			<list>
+				<ref bean="oscarAward"/>
+ 				<ref bean="cannesAward"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="oscarAward" class="net.gosmarter.spring.AwardCrawler">
+		<property name="awardYearManager" ref="oscarAwardYear" />
+		<property name="awardMovieManager" ref="oscarAwardMovie" />
+	</bean>
+	
+	<bean id="oscarAwardYear" class="net.gosmarter.webcrawler.OscarAwardYearManager" />
+	<bean id="oscarAwardMovie" class="net.gosmarter.webcrawler.OscarAwardMovieManager" />
+	
+	<bean id="cannesAward" class="net.gosmarter.spring.AwardCrawler">
+		<property name="awardYearManager" ref="cannesAwardYear" />
+		<property name="awardMovieManager" ref="cannesAwardMovie" />
+	</bean>
+	
+	<bean id="cannesAwardYear" class="net.gosmarter.webcrawler.CannesGoldenPalmsAwardYearManager" />
+	<bean id="cannesAwardMovie" class="net.gosmarter.webcrawler.CannesGoldenPalmsAwardMovieManager" />
+</beans>

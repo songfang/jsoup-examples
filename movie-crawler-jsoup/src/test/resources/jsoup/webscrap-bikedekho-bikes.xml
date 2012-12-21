@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webScrapMap>
+
+	<resultMap id="bikeDekhoBikes" url="http://www.bikedekho.com/used-bikes/hyderabad/bajaj-avenger/used-bajaj-avenger-bikes.htm?page=1"
+		class="com.gosmarter.webcrawler.jsoup.Item" data="list">
+
+		<result property="link" type="url" 
+			cssselector="html body div#Wraper.container div.CommonBlock div#content div#CommonPage.CommonBlock div.FloatLeft div.CommonBlock div#UsedBikes.BoxModel ul.CommonBlock div#yw0.list-view div.items li.Hand ul li.FloatLeft span.Navigation a" />
+		<result property="name" type="text" 
+			cssselector="html body div#Wraper.container div.CommonBlock div#content div#CommonPage.CommonBlock div.FloatLeft div.CommonBlock div#UsedBikes.BoxModel ul.CommonBlock div#yw0.list-view div.items li.Hand ul li.FloatLeft span.Navigation a" />
+		<result property="price" type="text" 
+			cssselector="html body div#Wraper.container div.CommonBlock div#content div#CommonPage.CommonBlock div.FloatLeft div.CommonBlock div#UsedBikes.BoxModel ul.CommonBlock div#yw0.list-view div.items li.Hand ul li.Price" />
+	</resultMap>
+</webScrapMap>

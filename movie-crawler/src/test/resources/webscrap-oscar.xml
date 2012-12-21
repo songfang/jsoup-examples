@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webScrapMap>
+
+	<resultMap id="awardyear" url="http://en.wikipedia.org/wiki/Academy_Awards"
+		class="net.gosmarter.webcrawler.AwardYear" baseurl="http://en.wikipedia.org">
+
+		<result property="year"
+			xpath="/html/body/div[4]/div[3]/div[4]/table[2]/tbody/tr[?]/td/a/text()" />
+
+		<result property="wikipediaSource" type="url"
+			xpath="/html/body/div[4]/div[3]/div[4]/table[2]/tbody/tr[?]/td/a/@href" />
+	</resultMap>
+
+	<resultMap id="awardBestMovie" class="net.gosmarter.webcrawler.AwardMovie"
+		baseurl="http://en.wikipedia.org" endIndex="1">
+
+		<result property="bestMovie1"
+			xpath="/html/body/div[4]/div[3]/div[4]/table[3]/tbody/tr[2]/td/ul/li/b/i/a/text()" />
+	</resultMap>
+
+	<resultMap id="awardBestDirector" class="net.gosmarter.webcrawler.AwardMovie"
+		baseurl="http://en.wikipedia.org" endIndex="1">
+
+		<result property="bestDirector1"
+			xpath="/html/body/div[4]/div[3]/div[4]/table[3]/tbody/tr[2]/td[2]/ul/li/b/a/text()" />
+	</resultMap>
+
+	<resultMap id="awardBestLeadHero" class="net.gosmarter.webcrawler.AwardMovie"
+		baseurl="http://en.wikipedia.org" endIndex="1">
+
+		<result property="bestLeadHero1"
+			xpath="/html/body/div[4]/div[3]/div[4]/table[3]/tbody/tr[4]/td/ul/li/b/a/text()" />
+	</resultMap>
+	
+	<resultMap id="awardBestLeadHeroine" class="net.gosmarter.webcrawler.AwardMovie"
+		baseurl="http://en.wikipedia.org" endIndex="1">
+
+		<result property="bestLeadHeroine1"
+			xpath="/html/body/div[4]/div[3]/div[4]/table[3]/tbody/tr[4]/td[2]/ul/li/b/a/text()" />
+	</resultMap>
+</webScrapMap>

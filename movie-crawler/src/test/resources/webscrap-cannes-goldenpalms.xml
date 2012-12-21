@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webScrapMap>
+
+	<resultMap id="awardyear" url="http://en.wikipedia.org/wiki/Palme_d%27Or"
+		class="net.gosmarter.webcrawler.AwardYear" baseurl="http://en.wikipedia.org" startIndex="43">
+
+		<result property="year"
+			xpath="/html/body/div[4]/div[3]/div[4]/table[3]/tbody/tr[?]/td/a/text()" />
+
+		<result property="wikipediaSource" type="url"
+			xpath="/html/body/div[4]/div[3]/div[4]/table[3]/tbody/tr[?]/td/a/@href" />
+	</resultMap>
+
+	<resultMap id="awardBestMovie" class="net.gosmarter.webcrawler.AwardMovie"
+		baseurl="http://en.wikipedia.org" endIndex="1">
+
+		<result property="bestMovie1"
+			xpath="/html/body/div[4]/div[3]/div[4]/ul[4]/li" contains="Golden Palm"/>
+	</resultMap>
+
+	<resultMap id="awardBestDirector" class="net.gosmarter.webcrawler.AwardMovie"
+		baseurl="http://en.wikipedia.org" endIndex="1">
+
+		<result property="bestDirector1"
+			xpath="/html/body/div[4]/div[3]/div[4]/ul[4]/li" contains="Best Director"/>
+	</resultMap>
+
+	<resultMap id="awardBestLeadHero" class="net.gosmarter.webcrawler.AwardMovie"
+		baseurl="http://en.wikipedia.org" endIndex="1">
+
+		<result property="bestLeadHero1"
+			xpath="/html/body/div[4]/div[3]/div[4]/ul[4]/li" contains="Best Actor"/>
+	</resultMap>
+	
+	<resultMap id="awardBestLeadHeroine" class="net.gosmarter.webcrawler.AwardMovie"
+		baseurl="http://en.wikipedia.org" endIndex="1">
+
+		<result property="bestLeadHeroine1"
+			xpath="/html/body/div[4]/div[3]/div[4]/ul[4]/li" contains="Best Actress"/>
+	</resultMap>
+</webScrapMap>

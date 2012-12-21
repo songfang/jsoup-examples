@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webScrapMap>
+
+	<resultMap id="movie"
+		url="http://en.wikipedia.org/wiki/Screen_Award_for_Best_Film" class="net.gosmarter.webcrawler.Movie"
+		indexRange="2">
+
+		<result property="name"
+			xpath="/html/body/div[4]/div[3]/div[4]/table[2]/tbody/tr[?]/td[2]/i/a/@title" />
+		<result property="source" type="url"
+			xpath="/html/body/div[4]/div[3]/div[4]/table[2]/tbody/tr[?]/td[2]/i/a/@href" />
+
+		<result property="director" fromsource="source"
+			xpath="/html/body/div[4]/div[3]/div[4]/table/tbody/tr[3]/td/a/text()" />
+
+		<result property="starring" fromsource="source"
+			xpath="/html/body/div[4]/div[3]/div[4]/table/tbody/tr[6]/td/a/text()" />
+	</resultMap>
+</webScrapMap>

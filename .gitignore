@@ -1,0 +1,12 @@
+.settings
+.classpath
+.project
+target
+movie-crawler/.settings
+movie-crawler/.classpath
+movie-crawler/.project
+movie-crawler/target
+movie-crawler-jsoup/.settings
+movie-crawler-jsoup/.classpath
+movie-crawler-jsoup/.project
+movie-crawler-jsoup/target
