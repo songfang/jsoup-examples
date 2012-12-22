@@ -6,12 +6,12 @@
 		baseurl="http://en.wikipedia.org" data="list">
 
 		<result property="name" type="text"
-			cssselector="html body div#content.mw-body div#bodyContent div#mw-content-text.mw-content-ltr table tbody tr td i a.mw-redirect" />
+			cssselector="html body div#content.mw-body div#bodyContent div#mw-content-text.mw-content-ltr table tbody tr td i a" />
 		<result property="source" type="url"
-			cssselector="html body div#content.mw-body div#bodyContent div#mw-content-text.mw-content-ltr table tbody tr td i a.mw-redirect" />
-		<result property="director" fromsource="source" type="text"
-			cssselector="html body div#content.mw-body div#bodyContent div#mw-content-text.mw-content-ltr table.infobox tbody tr td.description a" />
-		<result property="starring" fromsource="source" type="text"
+			cssselector="html body div#content.mw-body div#bodyContent div#mw-content-text.mw-content-ltr table tbody tr td i a" />
+		<result property="director" fromsource="source" type="text" singleDataIndex="1"
+			cssselector="html body div#content.mw-body div#bodyContent div#mw-content-text.mw-content-ltr table.infobox tbody tr td a" />
+		<result property="starring" fromsource="source" type="text" singleDataIndex="3"
 			cssselector="html body div#content.mw-body div#bodyContent div#mw-content-text.mw-content-ltr table.infobox tbody tr td a" />
 	</resultMap>
 </webScrapMap>

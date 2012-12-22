@@ -1,6 +1,7 @@
 package com.gosmarter.webcrawler.jsoup;
 
 import java.io.InputStream;
+import java.net.URI;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -66,11 +67,23 @@ public class WebCrawlerManager {
 			if (result.getFromsource() != null) {
 				for (Object obj : objects) {
 					String linkUrl = BeanUtils.getProperty(obj, result.getFromsource());
+					logger.debug("linkUrl=" + linkUrl);
+					try{
 					URL url1 = new URL(linkUrl);
 					Document doc1 = Jsoup.parse(url1, 50000);
-					Element elm = doc1.select(result.getCssselector()).first();
-					String data = Jsoup.clean(elm.text(), Whitelist.none());
-					BeanUtils.setProperty(obj, result.getProperty(), data);
+					Iterator<Element> elms = doc1.select(result.getCssselector()).iterator();
+					int index = 0;
+					while (elms.hasNext()) {
+						Element elm = elms.next();
+						int resultIndex = Integer.valueOf(result.getSingleDataIndex());
+						if (index == resultIndex) {
+							String data = Jsoup.clean(elm.text(), Whitelist.none());
+							logger.debug("data=" + data);
+							BeanUtils.setProperty(obj, result.getProperty(), data);
+						}
+						index++;
+					}
+					} catch (Exception e){}
 				}
 			}
 		}
@@ -100,7 +113,8 @@ public class WebCrawlerManager {
 			String data = "";
 			if (result.getType().equals("url")) {
 				data = element.attr("href");
-				if (webCrawlerMap.getBaseurl() != null) {
+				URI url1 = new URI(data);
+				if (!url1.isAbsolute() && webCrawlerMap.getBaseurl() != null) {
 					data = webCrawlerMap.getBaseurl() + element.attr("href");
 				}
 			} else if (result.getType().equals("img")) {

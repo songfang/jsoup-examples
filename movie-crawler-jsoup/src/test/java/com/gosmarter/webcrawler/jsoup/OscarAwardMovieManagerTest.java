@@ -39,11 +39,12 @@ public class OscarAwardMovieManagerTest {
 	
 	@Test
 	public void testMovies() throws Exception{
-		URL url = new URL("http://en.wikipedia.org/wiki/84th_Academy_Awards");
+		URL url = new URL("http://en.wikipedia.org/wiki/Hum_Aapke_Hain_Kaun");
 
 		Document doc = Jsoup.parse(url, 50000);
 
-		Iterator<Element> iterator = doc.select("html body div#content.mw-body div#bodyContent div#mw-content-text.mw-content-ltr table.wikitable tbody tr td ul li b").iterator();
+		//                                       html body div#content.mw-body div#bodyContent div#mw-content-text.mw-content-ltr table tbody tr td i a
+		Iterator<Element> iterator = doc.select("html body div#content.mw-body div#bodyContent div#mw-content-text.mw-content-ltr table.infobox tbody tr td a").iterator();
 		while (iterator.hasNext()) {
 			String data = Jsoup.clean(iterator.next().html(), Whitelist.none());
 			logger.debug("2. " + data);

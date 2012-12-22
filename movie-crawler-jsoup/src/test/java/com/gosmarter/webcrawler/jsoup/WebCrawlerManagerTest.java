@@ -26,7 +26,7 @@ public class WebCrawlerManagerTest {
 		assertEquals("Hum Aapke Hain Kaun", ((Movie)movies.get(0)).getName());
 		assertEquals("Sooraj R. Barjatya", ((Movie)movies.get(0)).getDirector());
 		logger.debug(((Movie)movies.get(0)).getStarring());
-		assertTrue(((Movie)movies.get(0)).getStarring().contains("Salman Khan"));
+		assertEquals("Salman Khan", ((Movie)movies.get(0)).getStarring());
 	}
 
 	@Test

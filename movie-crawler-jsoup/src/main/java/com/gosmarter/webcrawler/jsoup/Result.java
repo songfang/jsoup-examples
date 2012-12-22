@@ -55,9 +55,19 @@ public class Result {
 		this.index = index;
 	}
 
+	@XmlAttribute(name = "singleDataIndex")
+	public String getSingleDataIndex() {
+		return singleDataIndex;
+	}
+
+	public void setSingleDataIndex(String singleDataIndex) {
+		this.singleDataIndex = singleDataIndex;
+	}
+
 	private String property;
 	private String fromsource;
 	private String type;
 	private String cssselector;
 	private String index;
+	private String singleDataIndex;
 }
